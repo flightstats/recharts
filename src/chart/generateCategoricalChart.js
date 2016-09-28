@@ -495,6 +495,10 @@ const generateCategoricalChart = (ChartComponent, GraphicalChild) => {
         dataStartIndex: startIndex,
         dataEndIndex: endIndex,
       });
+
+      if (ChartComponent.props.handleBrushChange) {
+        ChartComponent.props.handleBrushChange(startIndex, endIndex);
+      }
     };
     /**
      * The handler of mouse entering chart
