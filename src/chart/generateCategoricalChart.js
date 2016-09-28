@@ -58,6 +58,7 @@ const generateCategoricalChart = (ChartComponent, GraphicalChild) => {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
       ]),
+      onBrushChange: PropTypes.func,
     };
 
     static defaultProps = {
@@ -496,8 +497,8 @@ const generateCategoricalChart = (ChartComponent, GraphicalChild) => {
         dataEndIndex: endIndex,
       });
 
-      if (ChartComponent.props.handleBrushChange) {
-        ChartComponent.props.handleBrushChange(startIndex, endIndex);
+      if (this.props.onBrushChange) {
+        this.props.onBrushChange(startIndex, endIndex);
       }
     };
     /**
