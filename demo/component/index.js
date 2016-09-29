@@ -16,6 +16,7 @@ import Sector from './Sector';
 import LineChart from './LineChart';
 import AreaChart from './AreaChart';
 import BarChart from './BarChart';
+import BrushedBarChart from './BrushedBarChart';
 import ComposedChart from './ComposedChart';
 import PieChart from './PieChart';
 import ScatterChart from './ScatterChart';
@@ -29,6 +30,7 @@ export default {
     LineChart,
     AreaChart,
     BarChart,
+    BrushedBarChart,
     ComposedChart,
     ScatterChart,
     PieChart,

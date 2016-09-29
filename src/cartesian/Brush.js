@@ -123,6 +123,19 @@ class Brush extends Component {
     return _.isFunction(tickFormatter) ? tickFormatter(text) : text;
   }
 
+  setSnapValues = () => {
+    const snapValues = [this.props.x];
+    const bucketWidth = this.props.width / this.props.data.length;
+    for (let i = 0; i < this.props.data.length; i++) {
+      snapValues.push(snapValues[i] + bucketWidth);
+    }
+    const len = snapValues.length;
+    snapValues[len - 1] = snapValues[len - 1] - this.props.travellerWidth;
+
+    this.bucketWidth = bucketWidth;
+    this.snapValues = snapValues;
+  };
+
   handleMove = (e) => {
     if (this.leaveTimer) {
       clearTimeout(this.leaveTimer);
@@ -169,6 +182,9 @@ class Brush extends Component {
     });
   };
 
+  nearestScaleValue = (pageX) => this.snapValues
+    .reduce((prev, curr) => (Math.abs(curr - pageX) < Math.abs(prev - pageX) ? curr : prev));
+
   handleSlideMove(e) {
     const { slideMoveStartX, startX, endX } = this.state;
     const { x, width, travellerWidth, onChange } = this.props;
@@ -183,20 +199,30 @@ class Brush extends Component {
     } else if (delta < 0) {
       delta = Math.max(delta, x - startX, x - endX);
     }
-    const newIndex = this.getIndex({
-      startX: startX + delta,
-      endX: endX + delta,
-    });
 
-    this.setState({
-      startX: startX + delta,
-      endX: endX + delta,
-      slideMoveStartX: e.pageX,
-    }, () => {
-      if (onChange) {
-        onChange(newIndex);
-      }
-    });
+    const nearest = this.nearestScaleValue(e.pageX);
+    const offset = Math.abs(startX - nearest) > Math.abs(endX - nearest)
+      ? (nearest - endX) : (nearest - startX);
+
+    const newStartX = startX + offset;
+    const newEndX = endX + offset;
+
+    if (newStartX !== newEndX) {
+      const newIndex = this.getIndex({
+        startX: newStartX,
+        endX: newEndX,
+      });
+
+      this.setState({
+        startX: newStartX,
+        endX: newEndX,
+        slideMoveStartX: e.pageX,
+      }, () => {
+        if (onChange) {
+          onChange(newIndex);
+        }
+      });
+    }
   }
 
   handleTravellerDown(id, e) {
@@ -212,6 +238,10 @@ class Brush extends Component {
     const { brushMoveStartX, movingTravellerId } = this.state;
     const prevValue = this.state[movingTravellerId];
     const { x, width, travellerWidth, onChange } = this.props;
+    let otherValue = this.state.startX;
+    if (movingTravellerId === 'startX') {
+      otherValue = this.state.endX;
+    }
 
     const params = { startX: this.state.startX, endX: this.state.endX };
     let delta = e.pageX - brushMoveStartX;
@@ -222,17 +252,21 @@ class Brush extends Component {
       delta = Math.max(delta, x - prevValue);
     }
 
-    params[movingTravellerId] = prevValue + delta;
-    const newIndex = this.getIndex(params);
+    const newValue = this.nearestScaleValue(e.pageX);
 
-    this.setState({
-      [movingTravellerId]: prevValue + delta,
-      brushMoveStartX: e.pageX,
-    }, () => {
-      if (onChange) {
-        onChange(newIndex);
-      }
-    });
+    if (otherValue !== newValue) {
+      params[movingTravellerId] = newValue;
+      const newIndex = this.getIndex(params);
+
+      this.setState({
+        [movingTravellerId]: newValue,
+        brushMoveStartX: e.pageX,
+      }, () => {
+        if (onChange) {
+          onChange(newIndex);
+        }
+      });
+    }
   }
 
   updateScale(props) {
@@ -242,7 +276,9 @@ class Brush extends Component {
       const len = data.length;
       this.scale = scalePoint().domain(_.range(0, len))
                     .range([x, x + width - travellerWidth]);
+
       this.scaleValues = this.scale.domain().map(entry => this.scale(entry));
+      this.setSnapValues();
       this.state = {
         isTextActive: false,
         isSlideMoving: false,

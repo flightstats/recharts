@@ -41,6 +41,7 @@ export ZAxis from './cartesian/ZAxis';
 
 export LineChart from './chart/LineChart';
 export BarChart from './chart/BarChart';
+export BrushedBarChart from './chart/BrushedBarChart';
 export PieChart from './chart/PieChart';
 export Treemap from './chart/Treemap';
 export Sankey from './chart/Sankey';
