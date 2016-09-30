@@ -12,6 +12,14 @@ const data = [
   { name: 'cosmetic', uv: 3300, pv: 2000, amt: 6500 },
   { name: 'storage', uv: 3200, pv: 1398, amt: 5000 },
   { name: 'digital', uv: 2800, pv: 2800, amt: 4000 },
+  { name: 'food', uv: 2400, pv: 2013, amt: 4500 },
+  { name: 'cosmetic', uv: 3300, pv: 2000, amt: 6500 },
+  { name: 'storage', uv: 3200, pv: 1398, amt: 5000 },
+  { name: 'digital', uv: 2800, pv: 2800, amt: 4000 },
+  { name: 'food', uv: 2400, pv: 2013, amt: 4500 },
+  { name: 'cosmetic', uv: 3300, pv: 2000, amt: 6500 },
+  { name: 'storage', uv: 3200, pv: 1398, amt: 5000 },
+  { name: 'digital', uv: 2800, pv: 2800, amt: 4000 },
 ];
 
 const data01 = [
@@ -221,7 +229,7 @@ export default React.createClass({
         <br/>
 
         <p>Stack BrushedBarChart</p>
-        <div className="bar-chart-wrapper">
+        <div className="bar-chart-wrapper" style={{left: '200px', position: 'relative'}}>
           <BrushedBarChart width={400} height={400} data={data} brushProps={brushProps}>
             <XAxis dataKey="name" />
             <YAxis />

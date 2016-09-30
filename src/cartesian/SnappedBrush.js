@@ -103,6 +103,25 @@ class Brush extends Component {
     return _.isFunction(tickFormatter) ? tickFormatter(text) : text;
   }
 
+  getSvgParent = (target) => {
+    if (this.svgParent) {
+      return this.svgParent;
+    }
+
+    if (target.parentElement.nodeName === 'svg') {
+      this.svgParent = target.parentElement;
+      return target.parentElement;
+    }
+    return this.getSvgParent(target.parentElement);
+  };
+
+  getClickX = (e) => {
+    const { target, clientX } = e;
+    const svgParent = this.getSvgParent(target);
+    const dim = svgParent.getBoundingClientRect();
+    return clientX - dim.left;
+  };
+
   setSnapValues = () => {
     const snapValues = [this.props.x];
     const bucketWidth = this.props.width / this.props.data.length;
@@ -157,7 +176,7 @@ class Brush extends Component {
     this.setState({
       isTravellerMoving: false,
       isSlideMoving: true,
-      slideMoveStartX: e.pageX,
+      slideMoveStartX: this.getClickX(e),
     });
   };
 
@@ -167,9 +186,9 @@ class Brush extends Component {
   handleSlideMove(e) {
     const { slideMoveStartX, startX, endX } = this.state;
     const { x, width, onChange } = this.props;
-
+    const pageX = this.getClickX(e);
     const startNearest = this.nearestSnapValue(slideMoveStartX);
-    const eventNearest = this.nearestSnapValue(e.pageX);
+    const eventNearest = this.nearestSnapValue(pageX);
 
     if (startNearest !== eventNearest) {
       const diff = startNearest - eventNearest;
@@ -184,7 +203,7 @@ class Brush extends Component {
       this.setState({
         startX: newStartX,
         endX: newEndX,
-        slideMoveStartX: e.pageX,
+        slideMoveStartX: pageX,
       }, () => {
         if (onChange) {
           onChange(newIndex);
@@ -206,21 +225,14 @@ class Brush extends Component {
     const { brushMoveStartX, movingTravellerId } = this.state;
     const prevValue = this.state[movingTravellerId];
     const { x, width, onChange } = this.props;
+    const params = { startX: this.state.startX, endX: this.state.endX };
+    const pageX = this.getClickX(e);
+    const newValue = this.nearestSnapValue(pageX);
     let otherValue = this.state.startX;
+
     if (movingTravellerId === 'startX') {
       otherValue = this.state.endX;
     }
-
-    const params = { startX: this.state.startX, endX: this.state.endX };
-    let delta = e.pageX - brushMoveStartX;
-
-    if (delta > 0) {
-      delta = Math.min(delta, x + width - prevValue);
-    } else if (delta < 0) {
-      delta = Math.max(delta, x - prevValue);
-    }
-
-    const newValue = this.nearestSnapValue(e.pageX);
 
     if (otherValue !== newValue) {
       params[movingTravellerId] = newValue;
@@ -228,7 +240,7 @@ class Brush extends Component {
 
       this.setState({
         [movingTravellerId]: newValue,
-        brushMoveStartX: e.pageX,
+        brushMoveStartX: pageX,
       }, () => {
         if (onChange) {
           onChange(newIndex);
