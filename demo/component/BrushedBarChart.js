@@ -199,14 +199,14 @@ export default React.createClass({
     this.setState(() => _.mapValues(initilaState, changeNumberOfData));
   },
 
-  handlePvBarClick(data, index, e) {
-    console.log(`Pv Bar (${index}) Click: `, data);
+  handleBrushChange(newIndex) {
+    console.log('handleBrushChange', newIndex);
   },
 
   render() {
     const { data, data01, data02 } = this.state;
     const brushProps = {
-
+      onChange: this.handleBrushChange
     };
 
     return (

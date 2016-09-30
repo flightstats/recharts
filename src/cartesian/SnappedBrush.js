@@ -67,7 +67,6 @@ class Brush extends Component {
     } else if (nextProps.width !== width || nextProps.x !== x ||
       nextProps.travellerWidth !== travellerWidth) {
       this.scale.range([nextProps.x, nextProps.x + nextProps.width - nextProps.travellerWidth]);
-      this.scaleValues = this.scale.domain().map(entry => this.scale(entry));
 
       this.setState({
         startX: this.scale(nextProps.startIndex),
@@ -78,7 +77,6 @@ class Brush extends Component {
 
   componentWillUnmount() {
     this.scale = null;
-    this.scaleValues = null;
 
     if (this.leaveTimer) {
       clearTimeout(this.leaveTimer);
@@ -86,29 +84,11 @@ class Brush extends Component {
     }
   }
 
-  getIndexInRange(range, x) {
-    const len = range.length;
-    let start = 0;
-    let end = len - 1;
-
-    while (end - start > 1) {
-      const middle = Math.floor((start + end) / 2);
-
-      if (range[middle] > x) {
-        end = middle;
-      } else {
-        start = middle;
-      }
-    }
-
-    return x >= range[end] ? end : start;
-  }
-
   getIndex({ startX, endX }) {
     const min = Math.min(startX, endX);
     const max = Math.max(startX, endX);
-    const minIndex = this.getIndexInRange(this.scaleValues, min);
-    const maxIndex = this.getIndexInRange(this.scaleValues, max);
+    const minIndex = this.snapValues.indexOf(this.nearestSnapValue(min));
+    const maxIndex = this.snapValues.indexOf(this.nearestSnapValue(max)) - 1;
 
     return {
       startIndex: minIndex,
@@ -122,6 +102,18 @@ class Brush extends Component {
 
     return _.isFunction(tickFormatter) ? tickFormatter(text) : text;
   }
+
+  setSnapValues = () => {
+    const snapValues = [this.props.x];
+    const bucketWidth = this.props.width / this.props.data.length;
+    for (let i = 0; i < this.props.data.length; i++) {
+      snapValues.push(snapValues[i] + bucketWidth);
+    }
+    const len = snapValues.length;
+    this.bucketWidth = bucketWidth;
+    this.snapValues = snapValues;
+    this.maxValue = snapValues[len - 1];
+  };
 
   handleMove = (e) => {
     if (this.leaveTimer) {
@@ -169,34 +161,36 @@ class Brush extends Component {
     });
   };
 
+  nearestSnapValue = (pageX) => this.snapValues
+    .reduce((prev, curr) => (Math.abs(curr - pageX) < Math.abs(prev - pageX) ? curr : prev));
+
   handleSlideMove(e) {
     const { slideMoveStartX, startX, endX } = this.state;
-    const { x, width, travellerWidth, onChange } = this.props;
-    let delta = e.pageX - slideMoveStartX;
+    const { x, width, onChange } = this.props;
+    
+    const startNearest = this.nearestSnapValue(slideMoveStartX);
+    const eventNearest = this.nearestSnapValue(e.pageX);
 
-    if (delta > 0) {
-      delta = Math.min(
-        delta,
-        x + width - travellerWidth - endX,
-        x + width - travellerWidth - startX
-      );
-    } else if (delta < 0) {
-      delta = Math.max(delta, x - startX, x - endX);
+    if (startNearest !== eventNearest) {
+      const diff = startNearest - eventNearest;
+      const newStartX = Math.max(startX - diff, x);
+      const newEndX = Math.min(endX - diff, this.maxValue);
+
+      const newIndex = this.getIndex({
+        startX: newStartX,
+        endX: newEndX,
+      });
+
+      this.setState({
+        startX: newStartX,
+        endX: newEndX,
+        slideMoveStartX: e.pageX,
+      }, () => {
+        if (onChange) {
+          onChange(newIndex);
+        }
+      });
     }
-    const newIndex = this.getIndex({
-      startX: startX + delta,
-      endX: endX + delta,
-    });
-
-    this.setState({
-      startX: startX + delta,
-      endX: endX + delta,
-      slideMoveStartX: e.pageX,
-    }, () => {
-      if (onChange) {
-        onChange(newIndex);
-      }
-    });
   }
 
   handleTravellerDown(id, e) {
@@ -211,38 +205,47 @@ class Brush extends Component {
   handleTravellerMove(e) {
     const { brushMoveStartX, movingTravellerId } = this.state;
     const prevValue = this.state[movingTravellerId];
-    const { x, width, travellerWidth, onChange } = this.props;
+    const { x, width, onChange } = this.props;
+    let otherValue = this.state.startX;
+    if (movingTravellerId === 'startX') {
+      otherValue = this.state.endX;
+    }
 
     const params = { startX: this.state.startX, endX: this.state.endX };
     let delta = e.pageX - brushMoveStartX;
 
     if (delta > 0) {
-      delta = Math.min(delta, x + width - travellerWidth - prevValue);
+      delta = Math.min(delta, x + width - prevValue);
     } else if (delta < 0) {
       delta = Math.max(delta, x - prevValue);
     }
 
-    params[movingTravellerId] = prevValue + delta;
-    const newIndex = this.getIndex(params);
+    let newValue = this.nearestSnapValue(e.pageX);
 
-    this.setState({
-      [movingTravellerId]: prevValue + delta,
-      brushMoveStartX: e.pageX,
-    }, () => {
-      if (onChange) {
-        onChange(newIndex);
-      }
-    });
+    if (otherValue !== newValue) {
+      params[movingTravellerId] = newValue;
+      const newIndex = this.getIndex(params);
+
+      this.setState({
+        [movingTravellerId]: newValue,
+        brushMoveStartX: e.pageX,
+      }, () => {
+        if (onChange) {
+          onChange(newIndex);
+        }
+      });
+    }
   }
 
   updateScale(props) {
-    const { data, startIndex, endIndex, x, width, travellerWidth } = props;
+    const { data, startIndex, endIndex, x, width } = props;
 
     if (data && data.length) {
       const len = data.length;
       this.scale = scalePoint().domain(_.range(0, len))
-                    .range([x, x + width - travellerWidth]);
-      this.scaleValues = this.scale.domain().map(entry => this.scale(entry));
+                    .range([x, x + width]);
+
+      this.setSnapValues();
       this.state = {
         isTextActive: false,
         isSlideMoving: false,
@@ -271,7 +274,7 @@ class Brush extends Component {
   renderTraveller(startX, id) {
     const { y, travellerWidth, height, stroke } = this.props;
     const lineY = Math.floor(y + height / 2) - 1;
-    const x = Math.max(startX, this.props.x);
+    const x = Math.max(startX, this.props.x) - (travellerWidth / 2);
 
     return (
       <Layer
@@ -365,7 +368,7 @@ class Brush extends Component {
   }
 
   render() {
-    const { x, width, travellerWidth, data, className } = this.props;
+    const { x, width, data, className } = this.props;
     const { startX, endX, isTextActive, isSlideMoving, isTravellerMoving } = this.state;
 
     if (!data || !data.length) { return null; }

@@ -11,7 +11,7 @@ import { getPresentationAttributes, findChildByType, findAllByType,
 import generateCategoricalChart from './generateCategoricalChart';
 import Cell from '../component/Cell';
 import Bar from '../cartesian/Bar';
-import Brush from '../cartesian/Brush';
+import SnappedBrush from '../cartesian/SnappedBrush';
 import pureRender from '../util/PureRender';
 import { getTicksOfAxis, getStackedDataOfItem } from '../util/CartesianUtils';
 import AnimationDecorator from '../util/AnimationDecorator';
@@ -301,25 +301,25 @@ class BruashedBarChart extends Component {
   }
 
   render() {
-    const { isComposed, graphicalItems, xAxisMap, yAxisMap, offset, stackGroups } = this.props;
+    const { isComposed, graphicalItems, xAxisMap, yAxisMap, offset, stackGroups, data } = this.props;
+    const brushProps = Object.assign({
+      x: offset.left,
+      y: offset.top,
+      width: offset.width,
+      height: offset.height,
+      data: data,
+      startIndex: 0,
+      endIndex: data.length - 1,
+      travellerWidth: 5,
+      fill: 'rgba(0,0,0,0)',
+      stroke: 'rgba(0,0,0,0.5)'
+    }, this.props.brushProps);
 
     return (
       <Layer className="recharts-bar-graphical">
         {!isComposed && this.renderCursor(xAxisMap, yAxisMap, offset)}
         {this.renderItems(graphicalItems, xAxisMap, yAxisMap, offset, stackGroups)}
-        <Brush
-          x={offset.left}
-          y={offset.top}
-          width={offset.width}
-          height={offset.height}
-          data={this.props.data}
-          startIndex={0}
-          endIndex={this.props.data.length - 1}
-          travellerWidth={5}
-          fill={'rgba(0,0,0,0)'}
-          stroke={'rgba(0,0,0,0.5)'}
-          {...this.props.brushProps}
-        />
+        <SnappedBrush {...brushProps} />
       </Layer>
     );
   }
