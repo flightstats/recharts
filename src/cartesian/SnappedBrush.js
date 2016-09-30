@@ -167,7 +167,7 @@ class Brush extends Component {
   handleSlideMove(e) {
     const { slideMoveStartX, startX, endX } = this.state;
     const { x, width, onChange } = this.props;
-    
+
     const startNearest = this.nearestSnapValue(slideMoveStartX);
     const eventNearest = this.nearestSnapValue(e.pageX);
 
@@ -220,7 +220,7 @@ class Brush extends Component {
       delta = Math.max(delta, x - prevValue);
     }
 
-    let newValue = this.nearestSnapValue(e.pageX);
+    const newValue = this.nearestSnapValue(e.pageX);
 
     if (otherValue !== newValue) {
       params[movingTravellerId] = newValue;

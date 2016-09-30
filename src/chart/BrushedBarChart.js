@@ -301,25 +301,35 @@ class BruashedBarChart extends Component {
   }
 
   render() {
-    const { isComposed, graphicalItems, xAxisMap, yAxisMap, offset, stackGroups, data } = this.props;
-    const brushProps = Object.assign({
+    const {
+      isComposed,
+      graphicalItems,
+      xAxisMap,
+      yAxisMap,
+      offset,
+      stackGroups,
+      data,
+      brushProps,
+    } = this.props;
+
+    const newBrushProps = Object.assign({
       x: offset.left,
       y: offset.top,
       width: offset.width,
       height: offset.height,
-      data: data,
+      data,
       startIndex: 0,
       endIndex: data.length - 1,
       travellerWidth: 5,
       fill: 'rgba(0,0,0,0)',
-      stroke: 'rgba(0,0,0,0.5)'
-    }, this.props.brushProps);
+      stroke: 'rgba(0,0,0,0.5)',
+    }, brushProps);
 
     return (
       <Layer className="recharts-bar-graphical">
         {!isComposed && this.renderCursor(xAxisMap, yAxisMap, offset)}
         {this.renderItems(graphicalItems, xAxisMap, yAxisMap, offset, stackGroups)}
-        <SnappedBrush {...brushProps} />
+        <SnappedBrush {...newBrushProps} />
       </Layer>
     );
   }
