@@ -60,7 +60,7 @@ class Brush extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { data, width, x, travellerWidth } = this.props;
+    const { data, width, x, travellerWidth, startIndex, endIndex } = this.props;
 
     if (nextProps.data !== data) {
       this.updateScale(nextProps);
@@ -68,6 +68,11 @@ class Brush extends Component {
       nextProps.travellerWidth !== travellerWidth) {
       this.scale.range([nextProps.x, nextProps.x + nextProps.width - nextProps.travellerWidth]);
 
+      this.setState({
+        startX: this.scale(nextProps.startIndex),
+        endX: this.scale(nextProps.endIndex),
+      });
+    } else if (nextProps.startIndex !== startIndex || nextProps.endIndex !== endIndex) {
       this.setState({
         startX: this.scale(nextProps.startIndex),
         endX: this.scale(nextProps.endIndex),
