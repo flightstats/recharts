@@ -62,7 +62,7 @@ class Brush extends Component {
   componentWillReceiveProps(nextProps) {
     const { data, width, x, travellerWidth, startIndex, endIndex } = this.props;
 
-    if (nextProps.data !== data || 
+    if (nextProps.data !== data ||
       (nextProps.startIndex !== startIndex || nextProps.endIndex !== endIndex)) {
       this.updateScale(nextProps);
     } else if (nextProps.width !== width || nextProps.x !== x ||
