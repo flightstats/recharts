@@ -190,21 +190,28 @@ const CustomAxis = React.createClass({
   }
 });
 
-const initilaState = {
+const initialState = {
   data,
   data01,
   data02,
+  startIndex: 0,
+  endIndex: 6
 };
 
 export default React.createClass({
   displayName: 'BarChartDemo',
 
   getInitialState() {
-    return initilaState;
+    return initialState;
   },
 
   handleChangeData() {
-    this.setState(() => _.mapValues(initilaState, changeNumberOfData));
+    const newState = _.mapValues(initialState, changeNumberOfData);
+    console.log('newState', newState);
+    this.setState(Object.assign(newState, {
+      startIndex: 3,
+      endIndex: 7
+    }));
   },
 
   handleBrushChange(newIndex) {
@@ -214,7 +221,9 @@ export default React.createClass({
   render() {
     const { data, data01, data02 } = this.state;
     const brushProps = {
-      onChange: this.handleBrushChange
+      onChange: this.handleBrushChange,
+      startIndex: this.state.startIndex,
+      endIndex: this.state.endIndex,
     };
 
     return (

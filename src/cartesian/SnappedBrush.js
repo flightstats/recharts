@@ -62,21 +62,14 @@ class Brush extends Component {
   componentWillReceiveProps(nextProps) {
     const { data, width, x, travellerWidth, startIndex, endIndex } = this.props;
 
-    if (nextProps.data !== data) {
+    if (nextProps.data !== data || 
+      (nextProps.startIndex !== startIndex || nextProps.endIndex !== endIndex)) {
       this.updateScale(nextProps);
     } else if (nextProps.width !== width || nextProps.x !== x ||
       nextProps.travellerWidth !== travellerWidth) {
       this.scale.range([nextProps.x, nextProps.x + nextProps.width - nextProps.travellerWidth]);
 
-      this.setState({
-        startX: this.scale(nextProps.startIndex),
-        endX: this.scale(nextProps.endIndex),
-      });
-    } else if (nextProps.startIndex !== startIndex || nextProps.endIndex !== endIndex) {
-      this.setState({
-        startX: this.scale(nextProps.startIndex),
-        endX: this.scale(nextProps.endIndex),
-      });
+      this.updateScale(nextProps);
     }
   }
 
@@ -267,8 +260,8 @@ class Brush extends Component {
         isTextActive: false,
         isSlideMoving: false,
         isTravellerMoving: false,
-        startX: this.scale(startIndex),
-        endX: this.scale(endIndex),
+        startX: this.nearestSnapValue(this.scale(startIndex)),
+        endX: this.nearestSnapValue(this.scale(endIndex)),
       };
     }
   }
