@@ -8,18 +8,54 @@ import { changeNumberOfData } from './utils';
 const colors = scaleOrdinal(schemeCategory10).range();
 
 const data = [
-  { name: 'food', uv: 2400, pv: 2013, amt: 4500 },
-  { name: 'cosmetic', uv: 3300, pv: 2000, amt: 6500 },
-  { name: 'storage', uv: 3200, pv: 1398, amt: 5000 },
-  { name: 'digital', uv: 2800, pv: 2800, amt: 4000 },
-  { name: 'food', uv: 2400, pv: 2013, amt: 4500 },
-  { name: 'cosmetic', uv: 3300, pv: 2000, amt: 6500 },
-  { name: 'storage', uv: 3200, pv: 1398, amt: 5000 },
-  { name: 'digital', uv: 2800, pv: 2800, amt: 4000 },
-  { name: 'food', uv: 2400, pv: 2013, amt: 4500 },
-  { name: 'cosmetic', uv: 3300, pv: 2000, amt: 6500 },
-  { name: 'storage', uv: 3200, pv: 1398, amt: 5000 },
-  { name: 'digital', uv: 2800, pv: 2800, amt: 4000 },
+  { name: '0', uv: 2400, pv: 2013, amt: 4500 },
+  { name: '1', uv: 3300, pv: 2000, amt: 6500 },
+  { name: '2', uv: 3200, pv: 1398, amt: 5000 },
+  { name: '3', uv: 2800, pv: 2800, amt: 4000 },
+  { name: '4', uv: 2400, pv: 2013, amt: 4500 },
+  { name: '5', uv: 3300, pv: 2000, amt: 6500 },
+  { name: '6', uv: 3200, pv: 1398, amt: 5000 },
+  { name: '7', uv: 2800, pv: 2800, amt: 4000 },
+  { name: '8', uv: 2400, pv: 2013, amt: 4500 },
+  { name: '9', uv: 3300, pv: 2000, amt: 6500 },
+  { name: '10', uv: 3200, pv: 1398, amt: 5000 },
+  // { name: '11', uv: 2800, pv: 2800, amt: 4000 },
+  // { name: '00', uv: 2400, pv: 2013, amt: 4500 },
+  // { name: '10', uv: 3300, pv: 2000, amt: 6500 },
+  // { name: '20', uv: 3200, pv: 1398, amt: 5000 },
+  // { name: '30', uv: 2800, pv: 2800, amt: 4000 },
+  // { name: '40', uv: 2400, pv: 2013, amt: 4500 },
+  // { name: '50', uv: 3300, pv: 2000, amt: 6500 },
+  // { name: '60', uv: 3200, pv: 1398, amt: 5000 },
+  // { name: '70', uv: 2800, pv: 2800, amt: 4000 },
+  // { name: '80', uv: 2400, pv: 2013, amt: 4500 },
+  // { name: '90', uv: 3300, pv: 2000, amt: 6500 },
+  // { name: '100', uv: 3200, pv: 1398, amt: 5000 },
+  // { name: '101', uv: 2800, pv: 2800, amt: 4000 },
+  // { name: '01', uv: 2400, pv: 2013, amt: 4500 },
+  // { name: '11', uv: 3300, pv: 2000, amt: 6500 },
+  // { name: '21', uv: 3200, pv: 1398, amt: 5000 },
+  // { name: '31', uv: 2800, pv: 2800, amt: 4000 },
+  // { name: '41', uv: 2400, pv: 2013, amt: 4500 },
+  // { name: '51', uv: 3300, pv: 2000, amt: 6500 },
+  // { name: '61', uv: 3200, pv: 1398, amt: 5000 },
+  // { name: '71', uv: 2800, pv: 2800, amt: 4000 },
+  // { name: '81', uv: 2400, pv: 2013, amt: 4500 },
+  // { name: '91', uv: 3300, pv: 2000, amt: 6500 },
+  // { name: '110', uv: 3200, pv: 1398, amt: 5000 },
+  // { name: '111', uv: 2800, pv: 2800, amt: 4000 },
+  // { name: '02', uv: 2400, pv: 2013, amt: 4500 },
+  // { name: '12', uv: 3300, pv: 2000, amt: 6500 },
+  // { name: '22', uv: 3200, pv: 1398, amt: 5000 },
+  // { name: '32', uv: 2800, pv: 2800, amt: 4000 },
+  // { name: '42', uv: 2400, pv: 2013, amt: 4500 },
+  // { name: '52', uv: 3300, pv: 2000, amt: 6500 },
+  // { name: '62', uv: 3200, pv: 1398, amt: 5000 },
+  // { name: '72', uv: 2800, pv: 2800, amt: 4000 },
+  // { name: '82', uv: 2400, pv: 2013, amt: 4500 },
+  // { name: '92', uv: 3300, pv: 2000, amt: 6500 },
+  // { name: '102', uv: 3200, pv: 1398, amt: 5000 },
+  // { name: '112', uv: 2800, pv: 2800, amt: 4000 },
 ];
 
 const data01 = [
@@ -194,7 +230,7 @@ const initialState = {
   data,
   data01,
   data02,
-  startIndex: 0,
+  startIndex: 5,
   endIndex: 6
 };
 
@@ -207,15 +243,31 @@ export default React.createClass({
 
   handleChangeData() {
     const newState = _.mapValues(initialState, changeNumberOfData);
-    console.log('newState', newState);
     this.setState(Object.assign(newState, {
       startIndex: 3,
       endIndex: 7
     }));
   },
 
+  handleStartIndexUpdate() {
+    const newStart = {
+      startIndex : +this.refs['start-inx'].value,
+      endIndex: +this.refs['end-inx'].value,
+    };
+    const newState = Object.assign({}, this.state, newStart);
+    this.setState(newState);
+  },
+
+  handleEndIndexUpdate() {
+    const newEnd = {
+      endIndex: +this.refs['end-inx'].value,
+      startIndex : +this.refs['start-inx'].value
+    };
+    const newState = Object.assign({}, this.state, newEnd);
+    this.setState(newState);
+  },
+
   handleBrushChange(newIndex) {
-    console.log('handleBrushChange', newIndex);
   },
 
   render() {
@@ -235,6 +287,25 @@ export default React.createClass({
         >
           change data
         </a>
+        start index
+        <input type='text' name='start-index' ref='start-inx' />
+        <a
+          href="javascript: void(0);"
+          className="btn update"
+          onClick={this.handleStartIndexUpdate}
+        > update start inx
+        </a>
+        end index
+        <input type='text' name='start-index' ref='end-inx' />
+        <a
+          href="javascript: void(0);"
+          className="btn update"
+          onClick={this.handleEndIndexUpdate}
+        >
+        update end inx
+        </a>
+
+
         <br/>
 
         <p>Stack BrushedBarChart</p>

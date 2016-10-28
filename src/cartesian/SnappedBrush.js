@@ -62,7 +62,7 @@ class Brush extends Component {
   componentWillReceiveProps(nextProps) {
     const { data, width, x, travellerWidth, startIndex, endIndex } = this.props;
 
-    if (nextProps.data !== data || 
+    if (nextProps.data !== data ||
       (nextProps.startIndex !== startIndex || nextProps.endIndex !== endIndex)) {
       this.updateScale(nextProps);
     } else if (nextProps.width !== width || nextProps.x !== x ||
@@ -87,7 +87,6 @@ class Brush extends Component {
     const max = Math.max(startX, endX);
     const minIndex = this.snapValues.indexOf(this.nearestSnapValue(min));
     const maxIndex = this.snapValues.indexOf(this.nearestSnapValue(max)) - 1;
-
     return {
       startIndex: minIndex,
       endIndex: maxIndex,
@@ -178,8 +177,7 @@ class Brush extends Component {
     });
   };
 
-  nearestSnapValue = (pageX) => this.snapValues
-    .reduce((prev, curr) => (Math.abs(curr - pageX) < Math.abs(prev - pageX) ? curr : prev));
+  nearestSnapValue = (pageX) => this.snapValues.reduce((prev, curr) => (Math.abs(curr - pageX) < Math.abs(prev - pageX) ? curr : prev), 0);
 
   handleSlideMove(e) {
     const { slideMoveStartX, startX, endX } = this.state;
@@ -251,10 +249,9 @@ class Brush extends Component {
     const { data, startIndex, endIndex, x, width } = props;
 
     if (data && data.length) {
-      const len = data.length;
+      const len = data.length + 1;
       this.scale = scalePoint().domain(_.range(0, len))
                     .range([x, x + width]);
-
       this.setSnapValues();
       this.state = {
         isTextActive: false,
