@@ -177,7 +177,8 @@ class Brush extends Component {
     });
   };
 
-  nearestSnapValue = (pageX) => this.snapValues.reduce((prev, curr) => (Math.abs(curr - pageX) < Math.abs(prev - pageX) ? curr : prev), 0);
+  nearestSnapValue = (pageX) => this.snapValues
+    .reduce((prev, curr) => (Math.abs(curr - pageX) < Math.abs(prev - pageX) ? curr : prev), 0);
 
   handleSlideMove(e) {
     const { slideMoveStartX, startX, endX } = this.state;
