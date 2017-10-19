@@ -1,7 +1,9 @@
 /**
  * @fileOverview Composed Chart
  */
-import React, { PropTypes, Component } from 'react';
+import PropTypes from 'prop-types';
+
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import Surface from '../container/Surface';
 import Layer from '../container/Layer';

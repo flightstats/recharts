@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Rectangle, Layer } from 'recharts';
 
 function DemoSankeyNode({ x, y, width, height, index, payload, containerWidth}) {

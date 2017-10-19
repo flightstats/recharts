@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import _ from 'lodash';
 
 export const PRESENTATION_ATTRIBUTES = {
@@ -255,18 +256,18 @@ export const validateWidthHeight = (el) => {
 export const isSsr = () => (typeof document === 'undefined');
 
 const SVG_TAGS = ['a', 'altGlyph', 'altGlyphDef', 'altGlyphItem', 'animate',
-'animateColor', 'animateMotion', 'animateTransform', 'circle', 'clipPath',
-'color-profile', 'cursor', 'defs', 'desc', 'ellipse', 'feBlend', 'feColormatrix',
-'feComponentTransfer', 'feComposite', 'feConvolveMatrix', 'feDiffuseLighting',
-'feDisplacementMap', 'feDistantLight', 'feFlood', 'feFuncA', 'feFuncB', 'feFuncG',
-'feFuncR', 'feGaussianBlur', 'feImage', 'feMerge', 'feMergeNode', 'feMorphology',
-'feOffset', 'fePointLight', 'feSpecularLighting', 'feSpotLight', 'feTile',
-'feTurbulence', 'filter', 'font', 'font-face', 'font-face-format', 'font-face-name',
-'font-face-url', 'foreignObject', 'g', 'glyph', 'glyphRef', 'hkern', 'image',
-'line', 'lineGradient', 'marker', 'mask', 'metadata', 'missing-glyph', 'mpath',
-'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect', 'script',
-'set', 'stop', 'style', 'svg', 'switch', 'symbol', 'text', 'textPath', 'title',
-'tref', 'tspan', 'use', 'view', 'vkern'];
+  'animateColor', 'animateMotion', 'animateTransform', 'circle', 'clipPath',
+  'color-profile', 'cursor', 'defs', 'desc', 'ellipse', 'feBlend', 'feColormatrix',
+  'feComponentTransfer', 'feComposite', 'feConvolveMatrix', 'feDiffuseLighting',
+  'feDisplacementMap', 'feDistantLight', 'feFlood', 'feFuncA', 'feFuncB', 'feFuncG',
+  'feFuncR', 'feGaussianBlur', 'feImage', 'feMerge', 'feMergeNode', 'feMorphology',
+  'feOffset', 'fePointLight', 'feSpecularLighting', 'feSpotLight', 'feTile',
+  'feTurbulence', 'filter', 'font', 'font-face', 'font-face-format', 'font-face-name',
+  'font-face-url', 'foreignObject', 'g', 'glyph', 'glyphRef', 'hkern', 'image',
+  'line', 'lineGradient', 'marker', 'mask', 'metadata', 'missing-glyph', 'mpath',
+  'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect', 'script',
+  'set', 'stop', 'style', 'svg', 'switch', 'symbol', 'text', 'textPath', 'title',
+  'tref', 'tspan', 'use', 'view', 'vkern'];
 /**
  * Filter all the svg elements of children
  * @param  {Array} children The children of a react element
@@ -284,4 +285,3 @@ export const filterSvgElements = (children) => {
 
   return svgElements;
 };
-

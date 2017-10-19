@@ -1,7 +1,9 @@
 /**
  * @fileOverview Tooltip
  */
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
+import React, { Component } from 'react';
 import pureRender from '../util/PureRender';
 import ReactDOMServer from 'react-dom/server';
 import DefaultTooltipContent from './DefaultTooltipContent';

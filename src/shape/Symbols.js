@@ -1,7 +1,9 @@
 /**
  * @fileOverview Curve
  */
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
+import React, { Component } from 'react';
 import { symbol as shapeSymbol, symbolCircle, symbolCross, symbolDiamond,
  symbolSquare, symbolStar, symbolTriangle, symbolWye } from 'd3-shape';
 import pureRender from '../util/PureRender';

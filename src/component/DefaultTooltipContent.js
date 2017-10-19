@@ -1,7 +1,9 @@
 /**
  * @fileOverview Default Tooltip Content
  */
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
+import React, { Component } from 'react';
 import pureRender from '../util/PureRender';
 import _ from 'lodash';
 

@@ -2,7 +2,6 @@
 *.log
 node_modules
 umd
-es6
 coverage
 npm-debug.log
 *.orig

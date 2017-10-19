@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import reduceCSSCalc from 'reduce-css-calc';
 import classNames from 'classnames';
 import { PRESENTATION_ATTRIBUTES, getPresentationAttributes } from '../util/ReactUtils';
@@ -112,7 +113,7 @@ class Text extends Component {
       lineHeight,
       capHeight,
       className,
-      ...textProps,
+      ...textProps
     } = this.props;
     const { wordsByLines } = this.state;
     const { x, y } = textProps;

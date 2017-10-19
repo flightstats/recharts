@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 class DemoTreemapItem extends Component {
   static displayName = 'DemoTreemapItem';

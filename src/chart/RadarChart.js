@@ -1,7 +1,9 @@
 /**
  * @fileOverview Radar Chart
  */
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import { scaleLinear, scalePoint } from 'd3-scale';

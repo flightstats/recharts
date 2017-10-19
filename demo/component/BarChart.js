@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { BarChart, Bar, Brush, Cell, CartesianGrid, ReferenceLine, ReferenceDot,
   XAxis, YAxis, Tooltip, Legend } from 'recharts';
 import { scaleOrdinal, schemeCategory10 } from 'd3-scale';

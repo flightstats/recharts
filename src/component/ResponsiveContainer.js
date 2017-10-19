@@ -1,7 +1,9 @@
 /**
  * @fileOverview Wrapper component to make charts adapt to the size of parent * DOM
  */
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
+import React, { Component } from 'react';
 import ContainerDimensions from 'react-container-dimensions';
 import pureRender from '../util/PureRender';
 import { isPercent } from '../util/DataUtils';

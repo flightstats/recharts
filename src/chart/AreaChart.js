@@ -1,7 +1,9 @@
 /**
  * @fileOverview Area Chart
  */
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
+import React, { Component } from 'react';
 import Layer from '../container/Layer';
 import Tooltip from '../component/Tooltip';
 import Dot from '../shape/Dot';

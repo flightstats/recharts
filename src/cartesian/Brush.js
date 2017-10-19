@@ -1,7 +1,9 @@
 /**
  * @fileOverview Brush
  */
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import { scalePoint } from 'd3-scale';
 import pureRender from '../util/PureRender';

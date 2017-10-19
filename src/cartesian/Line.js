@@ -1,7 +1,9 @@
 /**
  * @fileOverview Line
  */
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
+import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import Animate from 'react-smooth';
 import classNames from 'classnames';

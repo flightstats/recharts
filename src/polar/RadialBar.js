@@ -1,7 +1,9 @@
 /**
  * @fileOverview Render a group of radial bar
  */
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import Sector from '../shape/Sector';
 import Layer from '../container/Layer';
