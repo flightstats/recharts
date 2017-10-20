@@ -13,10 +13,6 @@ var _class, _class2, _temp; /**
                              */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -73,11 +69,6 @@ var Dot = (0, _PureRender2.default)(_class = (_temp = _class2 = function (_Compo
   }]);
 
   return Dot;
-}(_react.Component), _class2.displayName = 'Dot', _class2.propTypes = {
-  className: _propTypes2.default.string,
-  cx: _propTypes2.default.number,
-  cy: _propTypes2.default.number,
-  r: _propTypes2.default.number
-}, _temp)) || _class;
+}(_react.Component), _class2.displayName = 'Dot', _temp)) || _class;
 
 exports.default = Dot;

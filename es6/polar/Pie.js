@@ -407,38 +407,7 @@ var Pie = (0, _AnimationDecorator2.default)(_class = (0, _PureRender2.default)(_
   }]);
 
   return Pie;
-}(_react.Component), _class2.displayName = 'Pie', _class2.propTypes = _extends({}, _ReactUtils.PRESENTATION_ATTRIBUTES, {
-  className: _propTypes2.default.string,
-  cx: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-  cy: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-  startAngle: _propTypes2.default.number,
-  endAngle: _propTypes2.default.number,
-  paddingAngle: _propTypes2.default.number,
-  innerRadius: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-  outerRadius: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-  nameKey: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-  valueKey: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-  data: _propTypes2.default.arrayOf(_propTypes2.default.object),
-  composedData: _propTypes2.default.arrayOf(_propTypes2.default.object),
-  minAngle: _propTypes2.default.number,
-  legendType: _propTypes2.default.oneOf(['line', 'square', 'rect', 'circle', 'cross', 'diamond', 'square', 'star', 'triangle', 'wye']),
-  maxRadius: _propTypes2.default.number,
-
-  labelLine: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.func, _propTypes2.default.element, _propTypes2.default.bool]),
-  label: _propTypes2.default.oneOfType([_propTypes2.default.shape({
-    offsetRadius: _propTypes2.default.number
-  }), _propTypes2.default.func, _propTypes2.default.element, _propTypes2.default.bool]),
-  activeShape: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.func, _propTypes2.default.element]),
-  activeIndex: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.arrayOf(_propTypes2.default.number)]),
-
-  onMouseEnter: _propTypes2.default.func,
-  onMouseLeave: _propTypes2.default.func,
-  onClick: _propTypes2.default.func,
-  isAnimationActive: _propTypes2.default.bool,
-  animationBegin: _propTypes2.default.number,
-  animationDuration: _propTypes2.default.number,
-  animationEasing: _propTypes2.default.oneOf(['ease', 'ease-in', 'ease-out', 'ease-in-out', 'spring', 'linear'])
-}), _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'Pie', _class2.defaultProps = {
   stroke: '#fff',
   fill: '#808080',
   legendType: 'rect',

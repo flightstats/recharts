@@ -14,10 +14,6 @@ var _class, _class2, _temp; /**
                              */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -384,26 +380,7 @@ var BarChart = (0, _AnimationDecorator2.default)(_class = (0, _PureRender2.defau
   }]);
 
   return BarChart;
-}(_react.Component), _class2.displayName = 'BarChart', _class2.propTypes = {
-  layout: _propTypes2.default.oneOf(['horizontal', 'vertical']),
-  dataStartIndex: _propTypes2.default.number,
-  dataEndIndex: _propTypes2.default.number,
-  data: _propTypes2.default.array,
-  isTooltipActive: _propTypes2.default.bool,
-  activeTooltipIndex: _propTypes2.default.number,
-  xAxisMap: _propTypes2.default.object,
-  yAxisMap: _propTypes2.default.object,
-  offset: _propTypes2.default.object,
-  graphicalItems: _propTypes2.default.array,
-  children: _propTypes2.default.oneOfType([_propTypes2.default.arrayOf(_propTypes2.default.node), _propTypes2.default.node]),
-  stackGroups: _propTypes2.default.object,
-  barCategoryGap: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-  barGap: _propTypes2.default.number,
-  barSize: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-  // used internally
-  isComposed: _propTypes2.default.bool,
-  animationId: _propTypes2.default.number
-}, _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'BarChart', _class2.defaultProps = {
   barCategoryGap: '10%',
   barGap: 4
 }, _temp)) || _class) || _class;

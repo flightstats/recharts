@@ -17,10 +17,6 @@ var _class, _class2, _temp; /**
                              */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -82,15 +78,7 @@ var Cross = (0, _PureRender2.default)(_class = (_temp = _class2 = function (_Com
   }]);
 
   return Cross;
-}(_react.Component), _class2.displayName = 'Cross', _class2.propTypes = _extends({}, _ReactUtils.PRESENTATION_ATTRIBUTES, {
-  x: _propTypes2.default.number,
-  y: _propTypes2.default.number,
-  width: _propTypes2.default.number,
-  height: _propTypes2.default.number,
-  top: _propTypes2.default.number,
-  left: _propTypes2.default.number,
-  className: _propTypes2.default.string
-}), _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'Cross', _class2.defaultProps = {
   x: 0,
   y: 0,
   top: 0,

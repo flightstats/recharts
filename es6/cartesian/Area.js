@@ -25,10 +25,6 @@ var _class, _class2, _temp; /**
                              */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -385,41 +381,7 @@ var Area = (0, _PureRender2.default)(_class = (_temp = _class2 = function (_Comp
   }]);
 
   return Area;
-}(_react.Component), _class2.displayName = 'Area', _class2.propTypes = _extends({}, _ReactUtils.PRESENTATION_ATTRIBUTES, {
-  className: _propTypes2.default.string,
-  dataKey: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]).isRequired,
-  type: _propTypes2.default.oneOfType([_propTypes2.default.oneOf(['basis', 'basisClosed', 'basisOpen', 'linear', 'linearClosed', 'natural', 'monotoneX', 'monotoneY', 'monotone', 'step', 'stepBefore', 'stepAfter']), _propTypes2.default.func]),
-  unit: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  name: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  yAxisId: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  xAxisId: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  stackId: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-  legendType: _propTypes2.default.oneOf(['line', 'square', 'rect', 'circle', 'cross', 'diamond', 'square', 'star', 'triangle', 'wye']),
-  connectNulls: _propTypes2.default.bool,
-
-  activeDot: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.element, _propTypes2.default.func, _propTypes2.default.bool]),
-  // dot configuration
-  dot: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.element, _propTypes2.default.object, _propTypes2.default.bool]),
-  label: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.element, _propTypes2.default.object, _propTypes2.default.bool]),
-  // have curve configuration
-  curve: _propTypes2.default.bool,
-  layout: _propTypes2.default.oneOf(['horizontal', 'vertical']),
-  baseLine: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.array]),
-  points: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    x: _propTypes2.default.number,
-    y: _propTypes2.default.number,
-    value: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.array])
-  })),
-  onMouseEnter: _propTypes2.default.func,
-  onMouseLeave: _propTypes2.default.func,
-  onClick: _propTypes2.default.func,
-
-  animationId: _propTypes2.default.number,
-  isAnimationActive: _propTypes2.default.bool,
-  animationBegin: _propTypes2.default.number,
-  animationDuration: _propTypes2.default.number,
-  animationEasing: _propTypes2.default.oneOf(['ease', 'ease-in', 'ease-out', 'ease-in-out', 'linear'])
-}), _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'Area', _class2.defaultProps = {
   strokeWidth: 1,
   stroke: '#3182bd',
   fill: '#3182bd',

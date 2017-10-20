@@ -29,10 +29,6 @@ var _class, _class2, _temp; /**
                              */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -264,26 +260,7 @@ var PolarRadiusAxis = (0, _PureRender2.default)(_class = (_temp = _class2 = func
   }]);
 
   return PolarRadiusAxis;
-}(_react.Component), _class2.displayName = 'PolarRadiusAxis', _class2.propTypes = _extends({}, _ReactUtils.PRESENTATION_ATTRIBUTES, {
-  cx: _propTypes2.default.number,
-  cy: _propTypes2.default.number,
-  hide: _propTypes2.default.bool,
-
-  angle: _propTypes2.default.number,
-  tickCount: _propTypes2.default.number,
-  ticks: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    value: _propTypes2.default.any,
-    radius: _propTypes2.default.value
-  })),
-  orientation: _propTypes2.default.oneOf(['left', 'right', 'middle']),
-  axisLine: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.object]),
-  label: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string, _propTypes2.default.element, _propTypes2.default.func]),
-  tick: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.object, _propTypes2.default.element, _propTypes2.default.func]),
-  stroke: _propTypes2.default.string,
-  tickFormatter: _propTypes2.default.func,
-  domain: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.oneOf(['auto', 'dataMin', 'dataMax'])])),
-  allowDataOverflow: _propTypes2.default.bool
-}), _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'PolarRadiusAxis', _class2.defaultProps = {
   cx: 0,
   cy: 0,
   angle: 0,

@@ -17,10 +17,6 @@ var _class, _class2, _temp2; /**
                               */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -217,40 +213,7 @@ var Scatter = (0, _AnimationDecorator2.default)(_class = (0, _PureRender2.defaul
   }]);
 
   return Scatter;
-}(_react.Component), _class2.displayName = 'Scatter', _class2.propTypes = _extends({}, _ReactUtils.PRESENTATION_ATTRIBUTES, {
-
-  xAxisId: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  yAxisId: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  zAxisId: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  line: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.object, _propTypes2.default.func, _propTypes2.default.element]),
-  lineType: _propTypes2.default.oneOf(['fitting', 'joint']),
-  lineJointType: _propTypes2.default.oneOfType([_propTypes2.default.oneOf(['basis', 'basisClosed', 'basisOpen', 'linear', 'linearClosed', 'natural', 'monotoneX', 'monotoneY', 'monotone', 'step', 'stepBefore', 'stepAfter']), _propTypes2.default.func]),
-  legendType: _propTypes2.default.oneOf(['line', 'square', 'rect', 'circle', 'cross', 'diamond', 'square', 'star', 'triangle', 'wye']),
-  className: _propTypes2.default.string,
-
-  activeIndex: _propTypes2.default.number,
-  activeShape: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.func, _propTypes2.default.element]),
-  shape: _propTypes2.default.oneOfType([_propTypes2.default.oneOf(['circle', 'cross', 'diamond', 'square', 'star', 'triangle', 'wye']), _propTypes2.default.element, _propTypes2.default.func]),
-  points: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    cx: _propTypes2.default.number,
-    cy: _propTypes2.default.number,
-    size: _propTypes2.default.number,
-    payload: _propTypes2.default.shape({
-      x: _propTypes2.default.number,
-      y: _propTypes2.default.number,
-      z: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string])
-    })
-  })),
-  onMouseEnter: _propTypes2.default.func,
-  onMouseLeave: _propTypes2.default.func,
-  onClick: _propTypes2.default.func,
-
-  isAnimationActive: _propTypes2.default.bool,
-  animationId: _propTypes2.default.number,
-  animationBegin: _propTypes2.default.number,
-  animationDuration: _propTypes2.default.number,
-  animationEasing: _propTypes2.default.oneOf(['ease', 'ease-in', 'ease-out', 'ease-in-out', 'linear'])
-}), _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'Scatter', _class2.defaultProps = {
   fill: '#fff',
   xAxisId: 0,
   yAxisId: 0,

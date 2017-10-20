@@ -25,10 +25,6 @@ var _class, _class2, _temp; /**
                              */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -177,23 +173,7 @@ var ReferenceDot = (0, _PureRender2.default)(_class = (_temp = _class2 = functio
   }]);
 
   return ReferenceDot;
-}(_react.Component), _class2.displayName = 'ReferenceDot', _class2.propTypes = _extends({}, _ReactUtils.PRESENTATION_ATTRIBUTES, {
-  r: _propTypes2.default.number,
-
-  label: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string, _propTypes2.default.func, _propTypes2.default.element]),
-
-  xAxis: _propTypes2.default.object,
-  yAxis: _propTypes2.default.object,
-
-  isFront: _propTypes2.default.bool,
-  alwaysShow: _propTypes2.default.bool,
-  x: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-  y: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-
-  yAxisId: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  xAxisId: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  shape: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.element])
-}), _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'ReferenceDot', _class2.defaultProps = {
   isFront: false,
   alwaysShow: false,
   xAxisId: 0,

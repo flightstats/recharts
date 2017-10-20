@@ -11,10 +11,6 @@ var _class, _class2, _temp; /**
                              */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -48,18 +44,7 @@ var ZAxis = (0, _PureRender2.default)(_class = (_temp = _class2 = function (_Com
   }]);
 
   return ZAxis;
-}(_react.Component), _class2.displayName = 'ZAxis', _class2.propTypes = {
-  // The name of data displayed in the axis
-  name: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  // The unit of data displayed in the axis
-  unit: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  // The unique id of z-axis
-  zAxisId: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  // The key of data displayed in the axis
-  dataKey: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  // The range of axis
-  range: _propTypes2.default.arrayOf(_propTypes2.default.number)
-}, _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'ZAxis', _class2.defaultProps = {
   zAxisId: 0,
   range: [64, 64]
 }, _temp)) || _class;

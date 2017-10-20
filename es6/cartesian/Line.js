@@ -17,10 +17,6 @@ var _class, _class2, _temp; /**
                              */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -380,37 +376,7 @@ var Line = (0, _PureRender2.default)(_class = (_temp = _class2 = function (_Comp
   }]);
 
   return Line;
-}(_react.Component), _class2.displayName = 'Line', _class2.propTypes = _extends({}, _ReactUtils.PRESENTATION_ATTRIBUTES, {
-  className: _propTypes2.default.string,
-  type: _propTypes2.default.oneOfType([_propTypes2.default.oneOf(['basis', 'basisClosed', 'basisOpen', 'linear', 'linearClosed', 'natural', 'monotoneX', 'monotoneY', 'monotone', 'step', 'stepBefore', 'stepAfter']), _propTypes2.default.func]),
-  unit: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  name: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  dataKey: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]).isRequired,
-  yAxisId: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  xAxisId: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  legendType: _propTypes2.default.oneOf(['line', 'square', 'rect', 'circle', 'cross', 'diamond', 'square', 'star', 'triangle', 'wye']),
-  layout: _propTypes2.default.oneOf(['horizontal', 'vertical']),
-  connectNulls: _propTypes2.default.bool,
-
-  // whether have dot in line
-  activeDot: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.element, _propTypes2.default.func, _propTypes2.default.bool]),
-  dot: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.element, _propTypes2.default.func, _propTypes2.default.bool]),
-  label: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.element, _propTypes2.default.func, _propTypes2.default.bool]),
-
-  points: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    x: _propTypes2.default.number,
-    y: _propTypes2.default.number,
-    value: _propTypes2.default.value
-  })),
-  onMouseEnter: _propTypes2.default.func,
-  onMouseLeave: _propTypes2.default.func,
-  onClick: _propTypes2.default.func,
-  isAnimationActive: _propTypes2.default.bool,
-  animationBegin: _propTypes2.default.number,
-  animationDuration: _propTypes2.default.number,
-  animationEasing: _propTypes2.default.oneOf(['ease', 'ease-in', 'ease-out', 'ease-in-out', 'linear']),
-  animationId: _propTypes2.default.number
-}), _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'Line', _class2.defaultProps = {
   xAxisId: 0,
   yAxisId: 0,
   connectNulls: false,

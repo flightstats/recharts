@@ -21,10 +21,6 @@ var _class, _class2, _temp; /**
                              */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -150,21 +146,7 @@ var DefaultTooltipContent = (0, _PureRender2.default)(_class = (_temp = _class2 
   }]);
 
   return DefaultTooltipContent;
-}(_react.Component), _class2.displayName = 'DefaultTooltipContent', _class2.propTypes = {
-  separator: _propTypes2.default.string,
-  formatter: _propTypes2.default.func,
-  wrapperStyle: _propTypes2.default.object,
-  itemStyle: _propTypes2.default.object,
-  labelStyle: _propTypes2.default.object,
-  labelFormatter: _propTypes2.default.func,
-  label: _propTypes2.default.any,
-  payload: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    name: _propTypes2.default.any,
-    value: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string]),
-    unit: _propTypes2.default.any
-  })),
-  itemSorter: _propTypes2.default.func
-}, _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'DefaultTooltipContent', _class2.defaultProps = {
   separator: ' : ',
   itemStyle: {},
   labelStyle: {}

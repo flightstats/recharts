@@ -226,5 +226,5 @@ var Tooltip = (_temp = _class = function (_Component) {
   }]);
 
   return Tooltip;
-}(_react.Component), _class.displayName = 'Tooltip', _class.propTypes = propTypes, _class.defaultProps = defaultProps, _temp);
+}(_react.Component), _class.displayName = 'Tooltip', _class.defaultProps = defaultProps, _temp);
 exports.default = Tooltip;

@@ -17,10 +17,6 @@ var _class, _class2, _temp2; /**
                               */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -655,20 +651,7 @@ var ScatterChart = (0, _PureRender2.default)(_class = (_temp2 = _class2 = functi
   }]);
 
   return ScatterChart;
-}(_react.Component), _class2.displayName = 'ScatterChart', _class2.propTypes = {
-  width: _propTypes2.default.number,
-  height: _propTypes2.default.number,
-  margin: _propTypes2.default.shape({
-    top: _propTypes2.default.number,
-    right: _propTypes2.default.number,
-    bottom: _propTypes2.default.number,
-    left: _propTypes2.default.number
-  }),
-  title: _propTypes2.default.string,
-  style: _propTypes2.default.object,
-  children: _propTypes2.default.oneOfType([_propTypes2.default.arrayOf(_propTypes2.default.node), _propTypes2.default.node]),
-  className: _propTypes2.default.string
-}, _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'ScatterChart', _class2.defaultProps = {
   style: {},
   margin: { top: 5, right: 5, bottom: 5, left: 5 }
 }, _temp2)) || _class;

@@ -11,10 +11,6 @@ var _class, _class2, _temp; /**
                              */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -48,38 +44,7 @@ var XAxis = (0, _PureRender2.default)(_class = (_temp = _class2 = function (_Com
   }]);
 
   return XAxis;
-}(_react.Component), _class2.displayName = 'XAxis', _class2.propTypes = {
-  allowDecimals: _propTypes2.default.bool,
-  hide: _propTypes2.default.bool,
-  // The name of data displayed in the axis
-  name: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  // The unit of data displayed in the axis
-  unit: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  // The unique id of x-axis
-  xAxisId: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  domain: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number, _propTypes2.default.oneOf(['auto', 'dataMin', 'dataMax'])])),
-  // The key of data displayed in the axis
-  dataKey: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  // The width of axis which is usually calculated internally
-  width: _propTypes2.default.number,
-  // The height of axis, which need to be setted by user
-  height: _propTypes2.default.number,
-  // The orientation of axis
-  orientation: _propTypes2.default.oneOf(['top', 'bottom']),
-  type: _propTypes2.default.oneOf(['number', 'category']),
-  // Ticks can be any type when the axis is the type of category
-  // Ticks must be numbers when the axis is the type of number
-  ticks: _propTypes2.default.array,
-  // The count of ticks
-  tickCount: _propTypes2.default.number,
-  // The formatter function of tick
-  tickFormatter: _propTypes2.default.func,
-  padding: _propTypes2.default.shape({
-    left: _propTypes2.default.number,
-    right: _propTypes2.default.number
-  }),
-  allowDataOverflow: _propTypes2.default.bool
-}, _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'XAxis', _class2.defaultProps = {
   allowDecimals: true,
   hide: false,
   orientation: 'bottom',

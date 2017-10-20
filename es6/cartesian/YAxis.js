@@ -11,10 +11,6 @@ var _class, _class2, _temp; /**
                              */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -48,38 +44,7 @@ var YAxis = (0, _PureRender2.default)(_class = (_temp = _class2 = function (_Com
   }]);
 
   return YAxis;
-}(_react.Component), _class2.displayName = 'YAxis', _class2.propTypes = {
-  allowDecimals: _propTypes2.default.bool,
-  hide: _propTypes2.default.bool,
-  // The name of data displayed in the axis
-  name: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  // The unit of data displayed in the axis
-  unit: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  // The unique id of y-axis
-  yAxisId: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  domain: _propTypes2.default.arrayOf(_propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number, _propTypes2.default.oneOf(['auto', 'dataMin', 'dataMax'])])),
-  // The key of data displayed in the axis
-  dataKey: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  // Ticks can be any type when the axis is the type of category
-  // Ticks must be numbers when the axis is the type of number
-  ticks: _propTypes2.default.array,
-  // The count of ticks
-  tickCount: _propTypes2.default.number,
-  // The formatter function of tick
-  tickFormatter: _propTypes2.default.func,
-  // The width of axis, which need to be setted by user
-  width: _propTypes2.default.number,
-  // The height of axis which is usually calculated in Chart
-  height: _propTypes2.default.number,
-  // The orientation of axis
-  orientation: _propTypes2.default.oneOf(['left', 'right']),
-  type: _propTypes2.default.oneOf(['number', 'category']),
-  padding: _propTypes2.default.shape({
-    top: _propTypes2.default.number,
-    bottom: _propTypes2.default.number
-  }),
-  allowDataOverflow: _propTypes2.default.bool
-}, _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'YAxis', _class2.defaultProps = {
   allowDecimals: true,
   hide: false,
   orientation: 'left',

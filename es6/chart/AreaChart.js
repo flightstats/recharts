@@ -22,10 +22,6 @@ var _class, _class2, _temp; /**
                              */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -336,23 +332,7 @@ var AreaChart = (0, _AnimationDecorator2.default)(_class = (0, _PureRender2.defa
   }]);
 
   return AreaChart;
-}(_react.Component), _class2.displayName = 'AreaChart', _class2.propTypes = {
-  layout: _propTypes2.default.oneOf(['horizontal', 'vertical']),
-  dataStartIndex: _propTypes2.default.number,
-  dataEndIndex: _propTypes2.default.number,
-  data: _propTypes2.default.array,
-  isTooltipActive: _propTypes2.default.bool,
-  activeTooltipIndex: _propTypes2.default.number,
-  xAxisMap: _propTypes2.default.object,
-  yAxisMap: _propTypes2.default.object,
-  offset: _propTypes2.default.object,
-  graphicalItems: _propTypes2.default.array,
-  children: _propTypes2.default.oneOfType([_propTypes2.default.arrayOf(_propTypes2.default.node), _propTypes2.default.node]),
-  stackGroups: _propTypes2.default.object,
-  // used internally
-  isComposed: _propTypes2.default.bool,
-  animationId: _propTypes2.default.number
-}, _temp)) || _class) || _class;
+}(_react.Component), _class2.displayName = 'AreaChart', _temp)) || _class) || _class;
 
 exports.default = (0, _generateCategoricalChart2.default)(AreaChart, _Area2.default);
 exports.AreaChart = AreaChart;

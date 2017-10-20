@@ -17,10 +17,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                                                                                                                                                                                                                                                                    */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -522,29 +518,7 @@ var Treemap = (0, _PureRender2.default)(_class = (_temp2 = _class2 = function (_
   }]);
 
   return Treemap;
-}(_react.Component), _class2.displayName = 'Treemap', _class2.propTypes = {
-  width: _propTypes2.default.number,
-  height: _propTypes2.default.number,
-  data: _propTypes2.default.array,
-  style: _propTypes2.default.object,
-  aspectRatio: _propTypes2.default.number,
-  content: _propTypes2.default.oneOfType([_propTypes2.default.element, _propTypes2.default.func]),
-  fill: _propTypes2.default.string,
-  stroke: _propTypes2.default.string,
-  className: _propTypes2.default.string,
-  dataKey: _propTypes2.default.string,
-  children: _propTypes2.default.oneOfType([_propTypes2.default.arrayOf(_propTypes2.default.node), _propTypes2.default.node]),
-
-  onMouseEnter: _propTypes2.default.func,
-  onMouseLeave: _propTypes2.default.func,
-  onClick: _propTypes2.default.func,
-
-  isAnimationActive: _propTypes2.default.bool,
-  isUpdateAnimationActive: _propTypes2.default.bool,
-  animationBegin: _propTypes2.default.number,
-  animationDuration: _propTypes2.default.number,
-  animationEasing: _propTypes2.default.oneOf(['ease', 'ease-in', 'ease-out', 'ease-in-out', 'linear'])
-}, _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'Treemap', _class2.defaultProps = {
   fill: '#fff',
   stroke: '#000',
   dataKey: 'value',

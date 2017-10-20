@@ -19,10 +19,6 @@ var _class, _class2, _temp; /**
                              */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -496,25 +492,7 @@ var Brush = (0, _PureRender2.default)(_class = (_temp = _class2 = function (_Com
   }]);
 
   return Brush;
-}(_react.Component), _class2.displayName = 'Brush', _class2.propTypes = {
-  className: _propTypes2.default.string,
-
-  fill: _propTypes2.default.string,
-  stroke: _propTypes2.default.string,
-  x: _propTypes2.default.number.isRequired,
-  y: _propTypes2.default.number.isRequired,
-  width: _propTypes2.default.number.isRequired,
-  height: _propTypes2.default.number.isRequired,
-  travellerWidth: _propTypes2.default.number,
-
-  dataKey: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-  data: _propTypes2.default.array,
-  startIndex: _propTypes2.default.number,
-  endIndex: _propTypes2.default.number,
-  tickFormatter: _propTypes2.default.func,
-
-  onChange: _propTypes2.default.func
-}, _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'Brush', _class2.defaultProps = {
   x: 0,
   y: 0,
   width: 0,

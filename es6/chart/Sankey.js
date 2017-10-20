@@ -33,10 +33,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                                                                                                                                                                                                                                                                    */
 
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -670,37 +666,7 @@ var Sankey = (0, _PureRender2.default)(_class = (_temp2 = _class2 = function (_C
   }]);
 
   return Sankey;
-}(_react.Component), _class2.displayName = 'Sankey', _class2.propTypes = _extends({}, _ReactUtils.PRESENTATION_ATTRIBUTES, _ReactUtils.EVENT_ATTRIBUTES, {
-
-  width: _propTypes2.default.number,
-  height: _propTypes2.default.number,
-  data: _propTypes2.default.shape({
-    nodes: _propTypes2.default.array,
-    links: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-      target: _propTypes2.default.number,
-      source: _propTypes2.default.number,
-      value: _propTypes2.default.number
-    }))
-  }),
-
-  nodePadding: _propTypes2.default.number,
-  nodeWidth: _propTypes2.default.number,
-  linkCurvature: _propTypes2.default.number,
-  iterations: _propTypes2.default.number,
-
-  node: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.element, _propTypes2.default.func]),
-  link: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.element, _propTypes2.default.func]),
-
-  style: _propTypes2.default.object,
-  className: _propTypes2.default.string,
-  children: _propTypes2.default.oneOfType([_propTypes2.default.arrayOf(_propTypes2.default.node), _propTypes2.default.node]),
-  margin: _propTypes2.default.shape({
-    top: _propTypes2.default.number,
-    right: _propTypes2.default.number,
-    bottom: _propTypes2.default.number,
-    left: _propTypes2.default.number
-  })
-}), _class2.defaultProps = {
+}(_react.Component), _class2.displayName = 'Sankey', _class2.defaultProps = {
   nodePadding: 10,
   nodeWidth: 10,
   linkCurvature: 0.5,

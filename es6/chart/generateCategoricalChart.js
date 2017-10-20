@@ -24,10 +24,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -1000,24 +996,7 @@ var generateCategoricalChart = function generateCategoricalChart(ChartComponent,
     }]);
 
     return CategoricalChartWrapper;
-  }(_react.Component), _class.displayName = (0, _ReactUtils.getDisplayName)(ChartComponent), _class.propTypes = {
-    syncId: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number]),
-    width: _propTypes2.default.number,
-    height: _propTypes2.default.number,
-    data: _propTypes2.default.arrayOf(_propTypes2.default.object),
-    layout: _propTypes2.default.oneOf(['horizontal', 'vertical']),
-    stackOffset: _propTypes2.default.oneOf(['sign', 'expand', 'none', 'wiggle', 'silhouette']),
-    margin: _propTypes2.default.shape({
-      top: _propTypes2.default.number,
-      right: _propTypes2.default.number,
-      bottom: _propTypes2.default.number,
-      left: _propTypes2.default.number
-    }),
-    style: _propTypes2.default.object,
-    className: _propTypes2.default.string,
-    children: _propTypes2.default.oneOfType([_propTypes2.default.arrayOf(_propTypes2.default.node), _propTypes2.default.node]),
-    onBrushChange: _propTypes2.default.func
-  }, _class.defaultProps = {
+  }(_react.Component), _class.displayName = (0, _ReactUtils.getDisplayName)(ChartComponent), _class.defaultProps = {
     layout: 'horizontal',
     stackOffset: 'none',
     margin: { top: 5, right: 5, bottom: 5, left: 5 }
